@@ -7,7 +7,7 @@ int nxt_gap(int gap){
     return ceil(gap/2.0);
 }
 
-// O(n log(n)) solution
+
 void sort(vector<int> &a, int m){
     int n = a.size();
     if(m == 0 || m == n)
@@ -21,24 +21,8 @@ void sort(vector<int> &a, int m){
     }
 }
 
-// We can also use the following O(n) solution if there elements in the array are in the range [1, 10^9]
-void lsort(vector<long long> &a, int m){
-    int n = a.size();
-    int i = 0, j = m, k = 0;
-    long long md = 10000000000;
-    while(k < n){
-        if(j == n || (a[i]%md) < (a[j]%md)){
-            a[k] += md*(a[i]%md); 
-            i++; k++;
-        }
-        else if(i == m || (a[i]%md) >= (a[j]%md)){
-            a[k] += md*(a[j]%md);
-            j++; k++;
-        }
-    }
-    for(int i=0; i<n; i++)
-        a[i] = (a[i]/md);
-}
+
+
 
 int main(){
     freopen("test_cases_Q2.txt","r",stdin);
